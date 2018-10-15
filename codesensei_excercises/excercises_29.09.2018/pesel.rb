@@ -1,14 +1,15 @@
 def check_date_and_gender(pesel_in_int)
   year_birth = 0
+  
   number_from_last_two_digits_year_birth = pesel_in_int[0]*10 + pesel_in_int[1]
   number_from_month_birth = pesel_in_int[2]*10 + pesel_in_int[3]
   number_from_day_birth = pesel_in_int[4]*10 + pesel_in_int[5]
   number_gender = pesel_in_int[9]
   
-  if number_gender%2 == 0
-    gender = "female"
+   gender = if number_gender.even?
+     :female
   else
-    gender = "male"
+     :male
   end
 
   number_is_correct = true
@@ -48,12 +49,8 @@ def calculate_pesel(pesel_number)
  pesel_number = pesel_number.split('')
  pesel_length = pesel_number.size
  
- pesel_in_int = []
- pesel_number.map{
-   |a|
-   pesel_in_int << a.to_i
- }
-
+ pesel_in_int = pesel_number.map(&:to_i) #inna notacja
+  
   weights = [1,3,7,9,1,3,7,9,1,3]
   control_sum = 0
    i=0
