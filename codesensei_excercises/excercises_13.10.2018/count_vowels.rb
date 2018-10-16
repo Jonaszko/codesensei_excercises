@@ -2,7 +2,7 @@
 
 # @param [String] a single string.
 # @return [Integer] number of vowels in the string given as an argument.
-def count_vowel(words)
+def count_vowels(words)
   vowels_counter = 0
   vowels = ['a', 'e', 'o', 'u', 'i', 'y']
   tab_of_letters = words.split('')
@@ -11,5 +11,5 @@ def count_vowel(words)
       if a == b; vowels_counter += 1; end
     end
   end
-  print("number of vowels in this string is #{vowels_counter}")
+  vowels_counter
 end
