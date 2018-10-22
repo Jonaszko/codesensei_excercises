@@ -9,35 +9,23 @@ def sum_without_bae_v1(array_of_numbers)
 end
 
 # The function takes an array of integers, and then returns the sum of the
-# array omitting maximum element and minimum element of array.
+# array omitting maximum value and minimum value of array.
 
 # @param [Array of int] not sorted array of integers.
-# @return [Int] sum of array omitting max and min element.
+# @return [Int] sum of array omitting max and min value.
 def sum_without_bae_v2(array_of_numbers)
-  sum = 0
-  max = array_of_numbers[0]
+  sum = array_of_numbers.sort!.sum
   min = array_of_numbers[0]
-  count_min = 0
+  max = array_of_numbers[-1]
   count_max = 0
+  count_min = 0
 
   array_of_numbers.each do |a|
-    if a == max
-      count_max += 1
-      sum += max
-    elsif a == min
+    if a == min
       count_min += 1
-      sum += min
-    elsif a > max
-      max = a
-      count_max = 1
-      sum += max
-    elsif a < min
-      min = a
-      count_min = 1
-      sum += min
-    else
-      sum += a
+    elsif a == max
+      count_max += 1
     end
   end
-  sum = sum - (count_min*min + count_max*max)
+  sum = sum - (count_min * min + count_max * max)
 end
