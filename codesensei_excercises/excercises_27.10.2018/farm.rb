@@ -15,6 +15,15 @@ end
 
 class Animal
 
+# @param [String], [String]
+# @return [Animal]
+  def initialize(name:, breed:)
+    @name = name
+    @breed = breed
+  end
+
+  attr_accessor :name, :breed
+
   def give_sound
     print "\n"
   end
@@ -57,9 +66,9 @@ class Goose < Animal
 
 end
 
-# kitty = Kitty.new
-# dog = Dog.new
-# goose = Goose.new
-# duck = Duck.new
+# kitty = Kitty.new(name: "Janusz", breed: "pustynny")
+# dog = Dog.new(name: "Marian", breed: "bokser")
+# goose = Goose.new(name: "Aleksander", breed: "klasyczna")
+# duck = Duck.new(name: "Maria", breed: "klasyczna")
 # farm = Farm.new([kitty, dog, goose, duck])
 # farm.give_sounds
